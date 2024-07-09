@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Mudar Senha</title>
+    <link rel="stylesheet" href="{% static 'siteY/login.css' %}">
+</head>
+<body>
+
+{% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<div class="password-change-container">
+    <h2>Mudar Senha</h2>
+    <form method="post" action="{% url 'siteY:mudarPass' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Nome de utilizador" name="Username" required>
+        <br><br>
+        <input type="password" placeholder="Nova Palavra-passe" name="Password" required>
+        <br><br>
+        <input type="submit" class="submit" value="Mudar Senha">
+    </form>
+</div>
+
+</body>
+</html>

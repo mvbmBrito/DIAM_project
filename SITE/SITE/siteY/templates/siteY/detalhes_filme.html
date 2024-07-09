@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Lista de Filmes</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'SiteY/detalhes_filme.css' %}">
+</head>
+<body>
+   <header class="header">
+    <div class="logo">
+        <a href="{% url 'siteY:homepage' %}">
+            <img src="{% static 'SiteY/images/filme.jpg' %}">
+        </a>
+     </div>
+    <div class="search-bar">
+        <input type="text" id="search" name="search" placeholder="Pesquisar...">
+        <button type="submit">Buscar</button>
+    </div>
+    <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:addfilme' %}'">Adicionar Filme</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:addserie' %}'">Adicionar Série</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:listar_filmes' %}'">Filmes</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:listar_series' %}'">Séries</button>
+            </div>
+    </div>
+       <div class="home">
+        <a href="{% url 'siteY:homepage' %}">
+            <img src="{% static 'SiteY/images/home.png' %}" alt="Home" width="35" height="35">
+        </a>
+    </div>
+    <div class="perfil">
+        <a href="{% url 'siteY:perfil' %}">
+            <img src="{% static 'SiteY/images/perfil.jpg' %}" alt="Home" width="35" height="35">
+        </a>
+    </div>
+    <div class="logout">
+        <a href="{% url 'siteY:login' %}">
+            <img src="{% static 'SiteY/images/logout.png' %}" alt="Logout" width="35" height="35">
+        </a>
+    </div>
+</header>
+
+<div class="filme-details">
+    <h1>{{ filme.titulo }}</h1>
+    <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+    <p>{{ filme.descricao }}</p>
+    <p>Ano de Lançamento: {{ filme.ano_lancamento }}</p>
+    <p>Duração: {{ filme.duracao_minutos }} minutos</p>
+    <p>Gênero: {{ filme.genero }}</p>
+     <div class="like-data-wrapper">
+            <form method="POST" action="{% url 'siteY:likepost_filme' filme.id %}">
+            {% csrf_token %}
+            {% if user in filme.liked.all %}
+                <button type="submit" name="action" value="dislike" class="like-button">Dislike</button>
+            {% else %}
+                <button type="submit" name="action" value="like" class="like-button">Like</button>
+            {% endif %}
+            </form>
+            </div>
+            {% if filme.total_likes_filme == 1 %}
+                <p>1 like</p>
+            {% else %}
+                <p>{{ filme.total_likes_filme }} likes</p>
+            {% endif %}
+    <!-- Seção de Comentários -->
+            <div class="comentarios">
+            <strong>---------------------------------- Comentários ----------------------------------</strong>
+            {% if filme.comentarios_filme_set.count < 1 %}
+            <p>Ainda não existem comentários, seja o primeiro!</p>
+            {% else %}
+            {% for com in filme.comentarios_filme_set.all %}
+            <div class="comentario-wrapper">
+                <strong>{{ com.user }} -</strong>
+                {{ com.comentario }}
+            </div>
+        {% endfor %}
+        {% endif %}
+            </div>
+
+            <!-- Formulário para adicionar comentário -->
+            <form method="POST" action="{% url 'siteY:adicionar_comentario_filme' filme.id %}">
+                {% csrf_token %}
+                <textarea class="comment-bar" name="comentario" rows="3" placeholder="Adicione um comentário"></textarea>
+                <button type="submit">Comentar</button>
+            </form>
+        </div>
+</div>
+
+</body>
+</html>
+

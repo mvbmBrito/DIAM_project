@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'siteY/login.css' %}">
+</head>
+<body>
+
+{% if error_message %}
+    <p>{{ error_message }}</p>
+{% endif %}
+
+<div class="login-form-container">
+    <form method="post" action="{% url 'siteY:login' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Nome de utilizador" name="email" required>
+        <br><br>
+        <input type="password" placeholder="Palavra-passe" name="password" required>
+        <br><br>
+        <input type="submit" class="login" value="Login">
+    </form>
+</div>
+
+<div class="register-container">
+    <p>Não tens uma conta?</p>
+    <div class="button-container">
+        <a href="{% url 'siteY:criarconta' %}">Regista-te</a>
+    </div>
+</div>
+<div class="forgot-password">
+    <a href="{% url 'siteY:recuperarPassword' %}">Esqueceu sua senha?</a>
+</div>
+</body>
+</html>

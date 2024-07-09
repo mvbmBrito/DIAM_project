@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Título</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'SiteY/editar_serie.css' %}">
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a href="{% url 'siteY:homepage' %}">
+            <img src="{% static 'SiteY/images/filme.jpg' %}">
+        </a>
+    </div>
+    <div class="search-bar">
+        <form action="{% url 'siteY:pesquisar' %}" method="GET">
+            <input type="text" id="search" name="q" placeholder="Pesquisar...">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:addfilme' %}'">Adicionar Filme</button>
+    </div>
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:addserie' %}'">Adicionar Série</button>
+    </div>
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:listar_filmes' %}'">Filmes</button>
+    </div>
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:listar_series' %}'">Séries</button>
+    </div>
+    <div class="home">
+        <a href="{% url 'siteY:homepage' %}">
+            <img src="{% static 'SiteY/images/home.png' %}" alt="Home" width="35" height="35">
+        </a>
+    </div>
+    <div class="perfil">
+        <a href="{% url 'siteY:perfil' %}">
+            <img src="{% static 'SiteY/images/perfil.jpg' %}" alt="Home" width="35" height="35">
+        </a>
+    </div>
+    <div class="logout">
+        <a href="{% url 'siteY:login' %}">
+            <img src="{% static 'SiteY/images/logout.png' %}" alt="Logout" width="35" height="35">
+        </a>
+    </div>
+</header>
+
+<div class="main-content">
+    <div class="container-wrapper">
+        <div class="content">
+            <h2>Editar Serie</h2>
+<div class="container">
+    <form action="{% url 'siteY:editar_serie' serie.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" value="{{ serie.titulo }}" required><br>
+        </div>
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4">{{ serie.descricao }}</textarea><br>
+        </div>
+        <div>
+            <label for="ano">Ano de Lançamento:</label>
+            <input type="number" id="ano" name="ano" min="1900" max="2099" step="1" value="{{ serie.ano_lancamento }}"><br>
+        </div>
+        <div>
+            <label for="temporadas">Temporadas:</label>
+            <input type="number" id="temporadas" name="temporadas" min="1" step="1" value="{{ serie.temporadas }}"><br>
+        </div>
+        <div>
+            <label for="episodios">Episódios:</label>
+            <input type="number" id="episodios" name="episodios" min="1" step="1" value="{{ serie.episodios }}"><br>
+        </div>
+        <div>
+            <label for="genero">Gênero:</label>
+            <input type="text" id="genero" name="genero" value="{{ serie.genero }}"><br>
+        </div>
+        <div>
+            <img src="{{ serie.imagem.url }}" alt="Imagem da série" width="200" height="200">
+            <label for="imagem">Imagem:</label>
+            <input type="file" id="imagem" name="imagem"><br>
+        </div>
+        <button type="submit">Gravar</button>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

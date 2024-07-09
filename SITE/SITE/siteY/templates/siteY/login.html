@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'siteY/login.css' %}">
+</head>
+<body>
+    <div class="image-container">
+        <img src="{% static 'siteY/images/conec.jpg' %}" alt="Imagem de exemplo">
+        <p class="text-below-image">Aqui a diversão é garantida!</p>
+    </div>
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+
+    <div class="form-container">
+        <form method="post" action="{% url 'siteY:login' %}">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <br><br>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <br><br>
+            <input type="submit" class="login" value="Login">
+        </form>
+
+        <div class="button-container">
+            <a href="{% url 'siteY:criarconta' %}"><button type="button" class="createaccount">Criar conta</button></a>
+        </div>
+    </div>
+
+</body>
+</html>>

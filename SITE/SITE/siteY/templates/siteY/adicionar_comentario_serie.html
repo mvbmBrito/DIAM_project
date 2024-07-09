@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Comentário</title>
+</head>
+<body>
+    <h2>Adicionar Comentário</h2>
+    <form method="post" action="{% url 'adicionar_comentario_serie' serie.id %}">
+        {% csrf_token %}
+        <div>
+            <label for="id_comentario">Comentário:</label><br>
+            <textarea id="id_comentario" name="comentario" rows="4" cols="50"></textarea>
+        </div>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

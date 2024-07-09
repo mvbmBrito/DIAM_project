@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Título</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'SiteY/perfil.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'siteY:homepage' %}">
+                <img src="{% static 'SiteY/images/filme.jpg' %}">
+            </a>
+        </div>
+        <div class="search-bar">
+            <form action="{% url 'siteY:pesquisar' %}" method="GET">
+                <input type="text" id="search" name="q" placeholder="Pesquisar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:addfilme' %}'">Adicionar Filme</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:addserie' %}'">Adicionar Série</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:listar_filmes' %}'">Filmes</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:listar_series' %}'">Séries</button>
+            </div>
+        <div class="home">
+            <a href="{% url 'siteY:homepage' %}">
+                <img src="{% static 'SiteY/images/home.png' %}" alt="Home" width="35" height="35">
+            </a>
+        </div>
+        <div class="perfil">
+            <a href="{% url 'siteY:perfil' %}">
+                <img src="{% static 'SiteY/images/perfil.jpg' %}" alt="Home" width="35" height="35">
+            </a>
+        </div>
+        <div class="logout">
+            <a href="{% url 'siteY:login' %}">
+                <img src="{% static 'SiteY/images/logout.png' %}" alt="Logout" width="35" height="35">
+            </a>
+        </div>
+    </header>
+  <div class="nav-buttons">
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:meus_dados' %}'">Meus Dados</button>
+    </div>
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:meus_gostos' %}'">Meus Gostos</button>
+    </div>
+    {% if user.is_superuser %}
+    <div class="pub-button">
+        <button onclick="window.location.href='{% url 'siteY:admin' %}'">Administração</button>
+    </div>
+    {% endif %}
+</div>
+
+    <h1 class="movie-title">Filmes que já publiquei:</h1>
+    <div class="movie-container">
+        {% if user.filmes.all %}
+            {% for filme in user.filmes.all %}
+            <div class="movie">
+                <a href="{% url 'siteY:detalhes_filme' filme.id %}">
+                    <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+                    <h2>{{ filme.titulo }}</h2>
+                </a>
+            <div class="movie-buttons">
+        <a href="{% url 'siteY:editar_filme' filme.id %}">
+            <button class="edit-button">Editar</button>
+        </a>
+    </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum filme adicionado ainda.</p>
+        {% endif %}
+    </div>
+
+    <h1 class="series-title">Séries que já publiquei:</h1>
+    <div class="series-container">
+        {% if user.series.all %}
+            {% for serie in user.series.all %}
+            <div class="serie">
+                <a href="{% url 'siteY:detalhes_serie' serie.id %}">
+                    <img src="{{ serie.imagem.url }}" alt="{{ serie.titulo }}">
+                    <h2>{{ serie.titulo }}</h2>
+                </a>
+            <div class="serie-buttons">
+        <a href="{% url 'siteY:editar_serie' serie.id %}">
+            <button class="edit-button">Editar</button>
+        </a>
+    </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhuma série adicionada ainda.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

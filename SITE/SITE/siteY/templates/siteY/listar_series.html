@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Lista de Séries</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'SiteY/adicionar_serie.css' %}">
+</head>
+<body>
+   <header class="header">
+        <div class="logo">
+            <a href="{% url 'siteY:homepage' %}">
+                <img src="{% static 'SiteY/images/filme.jpg' %}">
+            </a>
+        </div>
+        <div class="search-bar">
+            <form action="{% url 'siteY:pesquisar' %}" method="GET">
+                <input type="text" id="search" name="q" placeholder="Pesquisar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:addfilme' %}'">Adicionar Filme</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:addserie' %}'">Adicionar Série</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:listar_filmes' %}'">Filmes</button>
+            </div>
+            <div class="pub-button">
+                <button onclick="window.location.href='{% url 'siteY:listar_series' %}'">Séries</button>
+            </div>
+        <div class="home">
+            <a href="{% url 'siteY:homepage' %}">
+                <img src="{% static 'SiteY/images/home.png' %}" alt="Home" width="35" height="35">
+            </a>
+        </div>
+        <div class="perfil">
+            <a href="{% url 'siteY:perfil' %}">
+                <img src="{% static 'SiteY/images/perfil.jpg' %}" alt="Home" width="35" height="35">
+            </a>
+        </div>
+        <div class="logout">
+            <a href="{% url 'siteY:login' %}">
+                <img src="{% static 'SiteY/images/logout.png' %}" alt="Logout" width="35" height="35">
+            </a>
+        </div>
+    </header>
+   <h1 class="serie-title">Séries</h1>
+    <div class="serie-container">
+    {% for serie in series %}
+        <div class="serie">
+            <a href="{% url 'siteY:detalhes_serie' serie.id %}">
+                <img src="{{ serie.imagem.url }}" alt="{{ serie.titulo }}">
+                <h2>{{ serie.titulo }}</h2>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>

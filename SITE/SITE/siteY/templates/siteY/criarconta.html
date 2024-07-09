@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="{% static 'siteY/criarconta.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+
+  <div class="form-criarconta">
+    <form action="{% url 'siteY:criarconta' %}" method="post" class="form-conta">
+      {% csrf_token %}
+      <fieldset>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="form-group">
+          <label for="Username">Username:</label>
+          <input type="text" id="Username" name="Username" required maxlength="15">
+        </div>
+        <div class="form-group">
+          <label for="PrimeiroNome">Primeiro Nome:</label>
+          <input type="text" id="PrimeiroNome" name="PrimeiroNome" required maxlength="15">
+        </div>
+        <div class="form-group">
+          <label for="UltimoNome">Último Nome:</label>
+          <input type="text" id="UltimoNome" name="UltimoNome" required>
+        </div>
+        <div class="form-group">
+          <label for="Email">Email:</label>
+          <input type="email" id="Email" name="Email" required placeholder="example@example.com">
+        </div>
+        <div class="form-group">
+          <label for="Password">Password:</label>
+          <input type="password" id="Password" name="Password" pattern=".{5,}" required title="Coloque 5 caracteres no mínimo">
+        </div>
+        <div class="form-group">
+          <label for="Nacionalidade">Nacionalidade:</label>
+          <select id="Nacionalidade" name="Nacionalidade" required>
+            <option value="">Selecione uma nacionalidade</option>
+    <option value="Albanês">Albanês</option>
+    <option value="Alemão">Alemão</option>
+    <option value="Belga">Belga</option>
+    <option value="Bielorrusso">Bielorrusso</option>
+    <option value="Bósnio">Bósnio</option>
+    <option value="Búlgaro">Búlgaro</option>
+    <option value="Croata">Croata</option>
+    <option value="Dinamarquês">Dinamarquês</option>
+    <option value="Escocês">Escocês</option>
+    <option value="Eslovaco">Eslovaco</option>
+    <option value="Esloveno">Esloveno</option>
+    <option value="Espanhol">Espanhol</option>
+    <option value="Estónio">Estónio</option>
+    <option value="Finlandês">Finlandês</option>
+    <option value="Francês">Francês</option>
+    <option value="Georgiano">Georgiano</option>
+    <option value="Grego">Grego</option>
+    <option value="Holandês">Holandês</option>
+    <option value="Húngaro">Húngaro</option>
+    <option value="Inglês">Inglês</option>
+    <option value="Irlandês">Irlandês</option>
+    <option value="Islandês">Islandês</option>
+    <option value="Italiano">Italiano</option>
+    <option value="Letão">Letão</option>
+    <option value="Lituano">Lituano</option>
+    <option value="Luxemburguês">Luxemburguês</option>
+    <option value="Macedónio">Macedónio</option>
+    <option value="Maltês">Maltês</option>
+    <option value="Moldavo">Moldavo</option>
+    <option value="Monegasco">Monegasco</option>
+    <option value="Montenegrino">Montenegrino</option>
+    <option value="Norueguês">Norueguês</option>
+    <option value="Polaco">Polaco</option>
+    <option value="Português">Português</option>
+    <option value="Romeno">Romeno</option>
+    <option value="Russo">Russo</option>
+    <option value="Sérvio">Sérvio</option>
+    <option value="Sueco">Sueco</option>
+    <option value="Suíço">Suíço</option>
+    <option value="Ucraniano">Ucraniano</option>
+    <option value="Waliano">Waliano</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="DataNascimento">Data de nascimento:</label>
+          <input type="date" id="DataNascimento" name="DataNascimento" max="2010-12-31" min="1920-01-01">
+        </div>
+        <div class="form-group">
+          <label for="Genero">Gênero:</label>
+          <select id="Genero" name="Genero" required>
+            <option value="">Selecione um Gênero</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Não binário">Não binário</option>
+          </select>
+        </div>
+        <button type="submit">Criar Conta</button>
+      </fieldset>
+    </form>
+  </div>
+
+
+{% endblock %}
+</body>
+</html>

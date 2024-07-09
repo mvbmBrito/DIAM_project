@@ -1,0 +1,124 @@
+body {
+    background-color: #d62828;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.header {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: auto;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+#search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.home,
+.perfil,
+.logout {
+    margin: 0 10px;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Define a altura da tela inteira */
+}
+
+.content {
+    width: 50%;
+    padding: 20px;
+}
+
+.content h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Adiciona margem abaixo do título */
+    font-weight: bold; /* Deixa o texto em negrito */
+    color: blue; /* Define a cor do texto para azul */
+}
+
+.container {
+    width: 100%; /* Ocupa toda a largura do .content */
+    text-align: center; /* Centraliza o texto dos rótulos */
+}
+
+.container label {
+    display: block; /* Cada rótulo ocupa uma linha */
+    margin-bottom: -17px; /* Adiciona margem abaixo do rótulo */
+    max-width: 150px; /* Define a largura máxima para os rótulos */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.container input,
+.container textarea {
+    width: 50%; /* O campo ocupa metade da largura */
+    margin: 0 auto; /* Centraliza os campos */
+    margin-bottom: 10px; /* Adiciona margem abaixo do campo de entrada */
+    display: block; /* Cada campo ocupa uma linha */
+}
+
+.header .pub-button button {
+    padding: 12px 24px; /* Aumenta o preenchimento do botão */
+    background-color: #0077b6; /* Define a cor de fundo do botão como azul claro */
+    color: #fff; /* Define a cor do texto como branco */
+    border: none; /* Remove a borda */
+    border-radius: 6px; /* Adiciona uma borda arredondada */
+    cursor: pointer; /* Altera o cursor ao passar por cima */
+}
+
+.header .pub-button button:hover {
+    background-color: #87CEEB; /* Define a cor de fundo do botão ao passar o mouse */
+}
+
+.pub-button {
+    margin-right: 35px; /* Adiciona espaço entre os botões */
+    margin-bottom: 10px; /* Adiciona espaço abaixo dos botões */
+    margin-top: 20px;
+}
+
+/* Adiciona espaço extra entre os botões "Adicionar Filme" e "Adicionar Série" */
+.pub-button:nth-child(1) {
+    margin-right: 30px;
+}

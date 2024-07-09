@@ -1,0 +1,137 @@
+body {
+    background-image: url("images/logo.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center; /* Centralize verticalmente */
+    justify-content: center; /* Centralize horizontalmente */
+    flex-direction: column; /* Organize os elementos em coluna */
+    min-height: 100vh;
+}
+
+.login-form-container {
+    width: 300px;
+    height: 225px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -300px; /* Adicione margem na parte inferior para separar os containers */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container {
+    width: 300px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px; /* Adicione margem na parte superior para separar os containers */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, fantasy; /* Tipo de fonte */
+}
+
+.login-form-container input[type="text"],
+.login-form-container input[type="password"] {
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: Arial, fantasy; /* Tipo de fonte */
+    height: 30px; /* Altura dos campos de texto */
+    /* Outros estilos desejados */
+}
+
+.login-form-container input[type="submit"] {
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: Arial, sans-serif; /* Tipo de fonte */
+    height: 23px; /* Altura do botão */
+    width: 80%; /* Largura total do container */
+    margin-top: 10px; /* Espaçamento entre os campos de entrada e o botão */
+    margin-left: 10%; /* Alinhar o botão ao centro */
+    margin-right: 0%; /* Alinhar o botão ao centro */
+    background-color: #118ab2; /* Azul claro */
+    color: white; /* Texto branco */
+    border: none; /* Remova a borda */
+    border-radius: 5px; /* Adicione bordas arredondadas */
+}
+
+.error-message {
+    color: red; /* Cor vermelha para a mensagem de erro */
+    font-size: 14px; /* Tamanho da fonte da mensagem de erro */
+    margin-top: 10px; /* Espaçamento entre o botão de login e a mensagem de erro */
+}
+
+.password-reset-container {
+    width: 300px;
+    height: 225px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -300px; /* Adicione margem na parte inferior para separar os containers */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-reset-container input[type="text"],
+.password-reset-container input[type="email"] {
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: Arial, fantasy; /* Tipo de fonte */
+    height: 30px; /* Altura dos campos de texto */
+    /* Outros estilos desejados */
+}
+
+.password-reset-container input[type="submit"] {
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: Arial, sans-serif; /* Tipo de fonte */
+    height: 23px; /* Altura do botão */
+    width: 80%; /* Largura total do container */
+    margin-top: 10px; /* Espaçamento entre os campos de entrada e o botão */
+    margin-left: 10%; /* Alinhar o botão ao centro */
+    margin-right: 0%; /* Alinhar o botão ao centro */
+    background-color: #118ab2; /* Azul claro */
+    color: white; /* Texto branco */
+    border: none; /* Remova a borda */
+    border-radius: 5px; /* Adicione bordas arredondadas */
+}
+
+.password-change-container {
+    width: 300px;
+    height: 225px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -300px; /* Adicione margem na parte inferior para separar os containers */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-change-container input[type="text"],
+.password-change-container input[type="email"] {
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: Arial, fantasy; /* Tipo de fonte */
+    height: 30px; /* Altura dos campos de texto */
+    /* Outros estilos desejados */
+}
+
+.password-change-container input[type="submit"] {
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: Arial, sans-serif; /* Tipo de fonte */
+    height: 23px; /* Altura do botão */
+    width: 80%; /* Largura total do container */
+    margin-top: 10px; /* Espaçamento entre os campos de entrada e o botão */
+    margin-left: 10%; /* Alinhar o botão ao centro */
+    margin-right: 0%; /* Alinhar o botão ao centro */
+    background-color: #118ab2; /* Azul claro */
+    color: white; /* Texto branco */
+    border: none; /* Remova a borda */
+    border-radius: 5px; /* Adicione bordas arredondadas */
+}

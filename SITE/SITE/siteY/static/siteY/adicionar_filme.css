@@ -1,0 +1,179 @@
+body {
+    background-color: #d62828;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.header {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: auto;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 50px;
+}
+
+#search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-button a {
+    padding: 10px 20px;
+    background-color: limegreen;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.profile-button a:hover {
+    background-color: darkgreen;
+}
+
+.profile-button,
+.home,
+.logout {
+    margin: 0 10px;
+}
+
+.content-pub {
+    display: flex;
+    justify-content: center;
+}
+
+.body-container {
+    margin-top: 20px; /* Adicione margem para separar do cabeçalho */
+    padding-left: 20px; /* Adicione algum preenchimento para melhor alinhamento */
+}
+
+
+.comment-bar {
+    width: 50%; /* Defina a largura desejada para a barra de comentário */
+    /* Outras propriedades de estilo desejadas */
+}
+
+.header .pub-button button {
+    padding: 12px 24px; /* Aumenta o preenchimento do botão */
+    background-color: #0077b6; /* Define a cor de fundo do botão como azul claro */
+    color: #fff; /* Define a cor do texto como branco */
+    border: none; /* Remove a borda */
+    border-radius: 6px; /* Adiciona uma borda arredondada */
+    cursor: pointer; /* Altera o cursor ao passar por cima */
+}
+
+.header .pub-button button:hover {
+    background-color: #87CEEB; /* Define a cor de fundo do botão ao passar o mouse */
+}
+
+
+
+/* Adiciona espaço extra entre os botões "Adicionar Filme" e "Adicionar Série" */
+.pub-button:nth-child(1) {
+    margin-right: 30px;
+}
+
+.nav-buttons .pub-button button {
+            padding: 10px 20px; /* Adiciona preenchimento ao botão */
+            background-color: #0077b6; /* Define a cor de fundo do botão */
+            color: white; /* Define a cor do texto */
+            border: none; /* Remove a borda */
+            border-radius: 4px; /* Adiciona borda arredondada */
+            cursor: pointer; /* Altera o cursor ao passar por cima */
+            margin-bottom: 10px; /* Adiciona margem na parte inferior para separar os botões */
+            width: 200px; /* Define a largura do botão */
+}
+
+.nav-buttons .pub-button button:hover {
+            background-color: #007bff; /* Define a cor de fundo do botão ao passar o mouse */
+}
+
+.pub-button {
+    margin-right: 35px; /* Adiciona espaço entre os botões */
+    margin-bottom: 10px; /* Adiciona espaço abaixo dos botões */
+    margin-top: 20px;
+}
+
+.filme-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Mantém as séries centralizadas horizontalmente */
+    margin: 30px auto; /* Centraliza o contêiner na página e adiciona margem superior */
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 10px; /* Adicionar preenchimento às margens esquerda e direita */
+}
+
+.filme {
+    flex: 0 0 calc(25% - 20px);
+    margin: 10px; /* Alterar a margem para manter a mesma distância das margens esquerda e direita */
+    text-align: center;
+    position: relative;
+}
+
+.filme img {
+    width: 100%;
+    height: 200px; /* Define a altura desejada para as imagens */
+    object-fit: cover; /* Garante que as imagens mantenham sua proporção e se ajustem ao tamanho especificado */
+    object-position: center; /* Centraliza as imagens */
+    border-radius: 5px; /* Adiciona um leve arredondamento às imagens */
+}
+
+.filme h2 {
+    position: absolute;
+    top: 50%; /* Position the title in the middle vertically */
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for the title */
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for the title */
+    margin: 0; /* Remove default margin */
+    transform: translateY(-50%); /* Move the title up by 50% of its own height to center it vertically */
+    z-index: 1; /* Ensure the title is overlaid on the image */
+}
+
+.filme-title {
+    text-align: center; /* Centraliza o título */
+    color: blue; /* Define a cor do texto como azul */
+    margin-top: 60px; /* Afasta o título do cabeçalho */
+    margin-bottom: 50px; /* Afasta o título dos filmes */
+    font-size: 24px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+}

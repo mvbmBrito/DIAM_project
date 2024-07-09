@@ -1,0 +1,40 @@
+body {
+    background-image: url("images/logo.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center; /* Centralize verticalmente */
+    justify-content: center; /* Centralize horizontalmente */
+    flex-direction: column; /* Organize os elementos em coluna */
+    min-height: 60vh; /* Alterado para 80vh */
+    font-size: 25px; /* Defina o tamanho da fonte para 18 pixels */
+    font-family: Arial, fantastic; /* Defina o tipo de letra para Arial ou uma fonte sans-serif genérica */
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select,
+.form-group input[type="date"] {
+    width: 250px; /* Defina a largura das caixas de texto para 300 pixels */
+    height: 30px; /* Defina a altura das caixas de texto para 40 pixels */
+    border: 1px solid #ccc; /* Adicione uma borda sólida de 1px cinza ao redor das caixas de texto */
+    border-radius: 5px; /* Adicione uma borda arredondada de 5px */
+    font-size: 16px; /* Defina o tamanho da fonte dentro das caixas de texto para 16 pixels */
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 150px; /* Defina a largura do botão */
+    height: 40px; /* Defina a altura do botão */
+    background-color: #118ab2; /* Azul claro */
+    color: white; /* Defina a cor do texto para branco */
+    border: none; /* Remova a borda */
+    border-radius: 5px; /* Adicione uma borda arredondada */
+    font-size: 20px; /* Ajuste o tamanho da fonte */
+    cursor: pointer; /* Adicione um cursor de ponteiro ao passar o mouse sobre o botão */
+    margin-top: 20px; /* Adicione margem superior para separar do último elemento */
+}
